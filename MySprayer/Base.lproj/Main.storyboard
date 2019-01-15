@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plant" translatesAutoresizingMaskIntoConstraints="NO" id="yuc-YU-9Ps">
+                                <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="Spf-MM-AHm">
                                 <rect key="frame" x="126" y="240" width="122" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -28,6 +32,9 @@
                                         <state key="normal" title="Take a photo">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ToCamPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="umd-Td-bvm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZY-r1-G8L">
                                         <rect key="frame" x="0.0" y="78" width="122" height="30"/>
@@ -35,6 +42,9 @@
                                         <state key="normal" title="Make a prediction">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ToPredictPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKG-af-WrG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1Z-TU-uI6">
                                         <rect key="frame" x="0.0" y="156" width="122" height="30"/>
@@ -42,24 +52,148 @@
                                         <state key="normal" title="About">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ToAboutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLE-aK-kjk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plant" translatesAutoresizingMaskIntoConstraints="NO" id="yuc-YU-9Ps">
-                                <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="rwI-3w-qa3" kind="show" identifier="MainToCam" id="Af5-xG-paR"/>
+                        <segue destination="lXJ-cY-ZE2" kind="show" identifier="MainToPredict" id="S7b-AN-zej"/>
+                        <segue destination="vs2-dP-Wbh" kind="show" identifier="MainToAbout" id="VZh-64-Gwe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="aRI-bw-VDa">
+            <objects>
+                <viewController id="lXJ-cY-ZE2" customClass="ViewController" customModule="MySprayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RFx-oF-uMV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Predictions" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ET8-fg-UI3">
+                                <rect key="frame" x="0.0" y="81" width="375" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.27488964399999999" green="0.5" blue="0.2016427506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlU-wn-b6X">
+                                <rect key="frame" x="16" y="20" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go Back To Main"/>
+                                <connections>
+                                    <action selector="AboutToMainPressed:" destination="YBQ-Tc-Z1E" eventType="touchUpInside" id="GJf-Du-C0s"/>
+                                    <action selector="PredictToMainPressed:" destination="lXJ-cY-ZE2" eventType="touchUpInside" id="jFO-TF-M1q"/>
+                                    <action selector="ToMainPressed:" destination="AiP-Q5-53w" eventType="touchUpInside" id="JIi-7I-EbU"/>
+                                    <action selector="ToMainPressed:" destination="YBQ-Tc-Z1E" eventType="touchUpInside" id="qt7-aJ-swW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="czW-fi-erv"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="PredictToMain" id="rGo-1f-YV8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63a-hn-m3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AiP-Q5-53w" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="878.41079460269873"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lDC-TQ-w2f">
+            <objects>
+                <viewController id="rwI-3w-qa3" customClass="ViewController" customModule="MySprayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mmo-gB-WeH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ImM-x4-HlL">
+                                <rect key="frame" x="16" y="92" width="343" height="404"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZ9-zg-j14">
+                                <rect key="frame" x="137" y="549" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="TakePhoto:" destination="rwI-3w-qa3" eventType="touchUpInside" id="uuy-ew-kYD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Txp-1l-JBE"/>
+                    </view>
+                    <connections>
+                        <outlet property="ImageDisplay" destination="ImM-x4-HlL" id="dlb-nH-6tR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1n-gs-30c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983.20000000000005" y="134.48275862068968"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WrE-tZ-o7H">
+            <objects>
+                <viewController id="vs2-dP-Wbh" customClass="ViewController" customModule="MySprayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YzJ-BH-Mad">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="About" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sO1-Mr-SNL">
+                                <rect key="frame" x="0.0" y="81" width="375" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.27488964399999999" green="0.5" blue="0.2016427506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="An ag app to help farmers caculate and predict spray coverage, etc etc....." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ARW-rI-WYO">
+                                <rect key="frame" x="35" y="172" width="305" height="209"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cc-B9-wVW">
+                                <rect key="frame" x="16" y="30" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go Back To Main"/>
+                                <connections>
+                                    <action selector="AboutToMainPressed:" destination="YBQ-Tc-Z1E" eventType="touchUpInside" id="I3G-jr-DHE"/>
+                                    <action selector="AboutToMainPressed:" destination="vs2-dP-Wbh" eventType="touchUpInside" id="acK-oo-Kiy"/>
+                                    <action selector="ToMainPressed:" destination="AiP-Q5-53w" eventType="touchUpInside" id="Uqw-de-0gJ"/>
+                                    <action selector="ToMainPressed:" destination="YBQ-Tc-Z1E" eventType="touchUpInside" id="mNO-zV-4dB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="592-5d-V0g"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="AboutToMain" id="Bla-m3-dk1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ORx-uE-SGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YBQ-Tc-Z1E" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-671" y="498"/>
+        </scene>
     </scenes>
     <resources>
         <image name="plant" width="488" height="496"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rGo-1f-YV8"/>
+    </inferredMetricsTieBreakers>
 </document>
